@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Woke Tweaks Shop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #E0E0E0;
+    }
+
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth; /* Enables smooth scrolling */
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      background-color: #121212;
+      color: #FFF;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 3px solid #9C4DFF;
+    }
+
+    header .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 40px;
+      font-weight: 600;
+      color: #9C4DFF;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(156, 77, 255, 0.7);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      color: #FFF;
+      text-decoration: none;
+      font-size: 18px;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #9C4DFF;
+    }
+
+    /* Home Section */
+    #home {
+      background: #000;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    #home h1 {
+      font-size: 4rem;
+      font-family: 'Orbitron', sans-serif;
+      color: #9C4DFF;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    #home p {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      color: #B0B0B0;
+    }
+
+    #home button {
+      background-color: #9C4DFF;
+      color: #121212;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #home button:hover {
+      background-color: #7A2FCC;
+    }
+
+    /* Shop Section */
+    #shop {
+      padding: 60px 20px;
+      background-color: #1E1E1E;
+      text-align: center;
+    }
+
+    #shop h2 {
+      font-size: 2.5rem;
+      color: #9C4DFF;
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .product-item {
+      background-color: #2A2A2A;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease;
+      text-align: center;
+      width: 300px; /* Control width of product items */
+    }
+
+    .product-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 229, 255, 0.4);
+    }
+
+    .product-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-item h3 {
+      font-size: 1.8rem;
+      margin: 15px 0;
+      color: #FFF;
+    }
+
+    .product-item p {
+      font-size: 1.2rem;
+      color: #B0B0B0;
+    }
+
+    .product-item button {
+      background-color: #9C4DFF;
+      color: #121212;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .product-item button:hover {
+      transform: scale(1.1);
+      background-color: #7A2FCC;
+    }
+
+    /* Staff Section */
+    #staff {
+      padding: 60px 20px;
+      background-color: #1E1E1E;
+      color: #E0E0E0;
+      text-align: center;
+    }
+
+    #staff h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #9C4DFF;
+    }
+
+    #staff p {
+      font-size: 1.2rem;
+      color: #B0B0B0;
+      line-height: 1.8;
+    }
+
+    .owner-box {
+      display: inline-block;
+      background-color: #2A2A2A;
+      width: 250px;
+      padding: 20px;
+      margin: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .owner-box img {
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .owner-box h3 {
+      font-size: 1.6rem;
+      color: #9C4DFF;
+      margin-bottom: 10px;
+    }
+
+    .owner-box p {
+      color: #B0B0B0;
+      font-size: 1rem;
+    }
+
+    /* Discord Section */
+    #discord {
+      padding: 60px 20px;
+      background-color: #1E1E1E;
+      color: #E0E0E0;
+      text-align: center;
+    }
+
+    #discord h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #9C4DFF;
+    }
+
+    .discord-box {
+      background-color: #2A2A2A;
+      width: 300px;
+      padding: 30px;
+      margin-top: 20px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+      display: inline-block;
+    }
+
+    .discord-box h3 {
+      font-size: 1.8rem;
+      color: #9C4DFF;
+      margin-bottom: 15px;
+    }
+
+    .discord-box p {
+      color: #B0B0B0;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+    }
+
+    .discord-box a {
+      display: inline-block;
+      padding: 12px 25px;
+      background-color: #9C4DFF;
+      color: #121212;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+    }
+
+    .discord-box a:hover {
+      background-color: #7A2FCC;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #121212;
+      color: #B0B0B0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #9C4DFF;
+      text-decoration: none;
+    }
+
+    footer p {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Woke Tweaks</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#staff">Staff</a></li>
+        <li><a href="#discord">Discord</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Home Section -->
+  <section id="home">
+    <h1>Welcome to Woke Tweaks</h1>
+    <p>Enhance your PC experience with our optimized tweaks for peripherals like keyboards, mice, and controllers.</p>
+    <button onclick="window.location.href='#shop'">Shop Now</button>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <!-- Keyboard Tweaks -->
+      <div class="product-item">
+        <img src="keyboard-tweak.jpg" alt="Keyboard Tweaks">
+        <h3>Keyboard Tweaks</h3>
+        <p>Enhance your keyboard's performance with faster response times and sensitivity adjustments.</p>
+        <button onclick="window.location.href='#keyboard-tweak'">View Product</button>
+      </div>
+
+      <!-- Mouse Tweaks -->
+      <div class="product-item">
+        <img src="mouse-tweak.jpg" alt="Mouse Tweaks">
+        <h3>Mouse Tweaks</h3>
+        <p>Get precision and speed with our optimized mouse settings for gaming and productivity.</p>
+        <button onclick="window.location.href='#mouse-tweak'">View Product</button>
+      </div>
+
+      <!-- Controller Tweaks -->
+      <div class="product-item">
+        <img src="controller-tweak.jpg" alt="Controller Tweaks">
+        <h3>Controller Tweaks</h3>
+        <p>Maximize controller sensitivity and response for smoother gameplay and faster actions.</p>
+        <button onclick="window.location.href='#controller-tweak'">View Product</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Staff Section -->
+  <section id="staff">
+    <h2>Meet the Owner</h2>
+    <div class="owner-box">
+      <img src="https://cdn.discordapp.com/avatars/123456789012345678/abcdef1234567890abcdef1234567890.png" alt="Owner's Profile Picture">
+      <h3>Woke Role Owner</h3>
+      <p>Meet the owner of Woke Tweaks, the visionary behind all our awesome optimizations.</p>
+    </div>
+  </section>
+
+  <!-- Discord Section -->
+  <section id="discord">
+    <h2>Join Our Discord Community</h2>
+    <div class="discord-box">
+      <h3>Get Connected</h3>
+      <p>Join our community on Discord to stay updated, share your feedback, and get exclusive offers.</p>
+      <a href="https://discord.com/invite/yourdiscordlink" target="_blank">Join Discord</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Woke Tweaks | All Rights Reserved.</p>
+    <p><a href="#terms">Terms of Service</a></p>
+  </footer>
+
+</body>
+</html>
